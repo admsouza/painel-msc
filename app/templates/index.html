@@ -1,54 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Natureza Patrimonial</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Natureza Patrimonial</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
 </head>
-<body>
+<body class="bg-light">
+  <header class="text-center mb-4"> <b></b>
+  
+    <form action="/enviar_parans" method="POST" class="form-inline justify-content-center mt-5 padding-top pt-5">
+      <div class="form-group mx-2">
+          <label for="id_ente" class="sr-only"></label>
+          <input type="text" id="id_ente" name="id_ente" class="form-control form-control-sm" placeholder="IBGE" required />
+      </div>
+      <div class="form-group mx-2">
+          <label for="an_referencia" class="sr-only"></label>
+          <input type="text" id="an_referencia" name="an_referencia" class="form-control form-control-sm" placeholder="Ano Referência" required />
+      </div>
+      <div class="form-group mx-2">
+          <label for="me_referencia" class="sr-only"></label>
+          <input type="text" id="me_referencia" name="me_referencia" class="form-control form-control-sm" placeholder="Mês Referência" required />
+      </div>
+      <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+  </form>
+  
+  </header>
 
-    <header class="text-center mb-4">
-        <h3>Enviar Parâmetros para APIs</h3>
-        <form action="/enviar_parans" method="POST" class="form-inline justify-content-center">
-            <div class="form-group mx-2">
-                <label for="id_ente" class="sr-only">ID Ente:</label>
-                <input type="text" id="id_ente" name="id_ente" class="form-control form-control-sm" placeholder="ID Ente" required>
-            </div>
-            <div class="form-group mx-2">
-                <label for="an_referencia" class="sr-only">Ano de Referência:</label>
-                <input type="text" id="an_referencia" name="an_referencia" class="form-control form-control-sm" placeholder="Ano Referência" required>
-            </div>
-            <div class="form-group mx-2">
-                <label for="me_referencia" class="sr-only">Mês de Referência:</label>
-                <input type="text" id="me_referencia" name="me_referencia" class="form-control form-control-sm" placeholder="Mês Referência" required>
-            </div>
-            <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
-        </form>
-    </header>
+  <div class="container box-main justify-content-center mt-5 padding-top pt-5 ">
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <div class="total-card card bg-success text-white rounded-lg">
+          <div class="card-body text-center bg-success text-white rounded-lg">
+            <h5>Caixa e Equivalentes</h5>
+            <p>Total: {{ total_sum }}</p>
+          </div>
+        </div>
+      </div>
 
-    <!-- Ajuste aqui para a div box-main -->
-   
-        <div class="box-main">
-            <div class="caixa-card">
-            
-                    <h3>Caixa e Equivalentes</h3>
-                    <p>Total: {{ total_sum }}</p>
-                </div>
-           
+      <div class="col-md-3 mb-3">
+        <div class="total-card card">
+          <div class="card-body text-center bg-success text-white rounded-lg bg-success text-white rounded-lg">
+            <h5>Despesa Extra</h5>
+            <p>Total: {{ total_extra }}</p>
+          </div>
+        </div>
+      </div>
 
-            <div class="extra-card">
-                <div class="">
-                    <h3>Movimentação Extra</h3>
-                    <p>Total: {{ total_extra }}</p>
-                </div>
+      <div class="col-md-3 mb-3">
+        <div class="total-card card">
+          <div class="card-body text-center bg-success text-white rounded-lg bg-success text-white rounded-lg">
+            <h5>Receita Extra</h5>
+            <p>Total aqui</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <div class="total-card card">
+          <div class="card-body text-center bg-success text-white rounded-lg">
+            <h5>Receita Realizada</h5>
+            <p>Total aqui</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <div class="total card ">
+          <div class="card-body text-center bg-success text-white rounded-lg">
+            <h5>Despesa Empenhada</h5>
+            <p>Total aqui</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <div class="total-card card ">
+          <div class="card-body text-center bg-success text-white rounded-lg">
+            <h5>Despesa Liquidada</h5>
+            <p>Total aqui</p>
+          </div>
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="total-card card ">
+          <div class="card-body text-center bg-success text-white rounded-lg">
+            <h5>Despesa Paga</h5>
+            <p>Total aqui</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 mb-3">
+    <div class="total-card card ">
+      <div class="card-body text-center bg-success text-white rounded-lg">
+        <h5>Inscrição de Restos</h5>
+        <p>Total aqui</p>
             </div>
         </div>
     </div>
+    <div class="col-md-3 mb-3">
+    <div class="total-card card ">
+      <div class="card-body text-center bg-success text-white rounded-lg">
+        <h5>Pagamento de Restos</h5>
+        <p>Total aqui</p>
+           </div>
+       </div>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="col-md-3 mb-3">
+    <div class="total-card card ">
+      <div class="card-body text-center bg-success text-white rounded-lg">
+        <h5>Cancela. de Restos</h5>
+        <p>Total aqui</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3 mb-3">
+    <div class="total-card card ">
+      <div class="card-body text-center bg-success text-white rounded-lg">
+        <h5>Despesa Corrente</h5>
+        <p>Total aqui</p>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-3 mb-3">
+    <div class="total-card card ">
+      <div class="card-body text-center bg-success text-white rounded-lg">
+        <h5>Despesa Capital</h5>
+        <p>Total aqui</p>
+        </div>
+    </div>
+</div>
+
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

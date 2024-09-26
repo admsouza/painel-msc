@@ -21,8 +21,8 @@ def movextra_data(data):
     filtered = df[
         (df['conta_contabil'].str.contains("1138", na=False)) & 
         (df['natureza_conta'] == "D") &
-        (df['tipo_valor'] == "period_change") &
-        (df['poder_orgao'] == "10131")
+        (df['tipo_valor'] == "period_change")
+       
     ]
 
     # Verificar o DataFrame filtrado

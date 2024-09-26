@@ -1,12 +1,13 @@
-body {
-    background-color: #f8f9fa;
-    border: none;
-}
 
+    body {
+        background-color: #f0f0f0; /* Cor de fundo cinza claro */
+        color: #333; /* Cor do texto */
+    }
+    
 header {
-    background-color: #fff;
+    padding-top: 100%;
     padding: 20px;
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid #136eca;
 }
 
 
@@ -15,9 +16,11 @@ h1 {
     font-size: 1rem; /* Ajusta o tamanho do título */
 }
 
-p, h3 {
-    font-size: 0.8rem; /* Ajusta o tamanho do texto */
-  ;
+p{
+    font-size: 0.4rem; /* Ajusta o tamanho do texto */
+    
+    
+  
 }
 
 .form-inline {
@@ -45,8 +48,3 @@ button.btn {
     flex-wrap: wrap; /* Permite que os quadrados quebrem linha em telas menores */
 }
 
- .caixa-card, .extra-card {
-    border:none;
-    border-radius: 10%;
-  
- }
