@@ -6,7 +6,7 @@ def create_app():
     
     with app.app_context():
         # Importando as rotas
-        from .routes import main as main_blueprint
+        from .views import main as main_blueprint
         app.register_blueprint(main_blueprint)
 
     return app

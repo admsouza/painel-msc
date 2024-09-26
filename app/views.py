@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, request
-from .api import get_api_data
-from .apiextra import get_api_data_extra
-from .caixa import process_data
-from .movextra import movextra_data
+from .apis.apicaixa import get_api_data
+from .apis.apiextra import get_api_data_extra
+from .functions.caixa import process_data
+from .functions.movextra import movextra_data
 
 main = Blueprint('main', __name__)
 

@@ -11,16 +11,16 @@ def process_data(data):
     filtered_C = df[
         (df['conta_contabil'].str.contains("11111")) & 
         (df['natureza_conta'] == "C") & 
-        (df['tipo_valor'] == "ending_balance") &
-        (df['poder_orgao'] == "10131")
+        (df['tipo_valor'] == "ending_balance") 
+     
     ]
 
     # Filtrar os dados para natureza D
     filtered_D = df[
         (df['conta_contabil'].str.contains("11111")) & 
         (df['natureza_conta'] == "D") & 
-        (df['tipo_valor'] == "ending_balance") &
-        (df['poder_orgao'] == "10131")
+        (df['tipo_valor'] == "ending_balance") 
+      
     ]
 
     # Calcular os totais somados
